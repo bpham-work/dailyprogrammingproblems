@@ -1,4 +1,4 @@
-package com.bpham.dailycodingproblem;
+package com.bpham.leetcode;
 
 import org.junit.Test;
 
