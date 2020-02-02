@@ -1,5 +1,6 @@
 package com.bpham.ctci.linkedlists;
 
+import com.bpham.ctci.models.Node;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.bpham.ctci.linkedlists;
+package com.bpham.ctci.models;
 
 public class Node<T> {
     public T val;
