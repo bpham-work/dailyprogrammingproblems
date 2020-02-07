@@ -1,4 +1,4 @@
-package com.bpham.ctci;
+package com.bpham.ctci.recursionanddp;
 
 import org.junit.Test;
 
