@@ -16,17 +16,34 @@ import java.util.stream.Collectors;
 
 public class PermWithDups {
     public List<String> perms(String str) {
+        List<String> result = new ArrayList<>();
+        perms(str, "", result);
+        return result;
+    }
+
+    public void perms(String str, String prefix, List<String> result) {
+        if (str.length() == 0) result.add(prefix);
+        else {
+            for (int i = 0; i < str.length(); i++) {
+                String before = str.substring(0, i);
+                String after = str.substring(i+1);
+                perms(before+after, prefix+str.charAt(i), result);
+            }
+        }
+    }
+
+    public List<String> perms2(String str) {
         List<Wrapper> init = new ArrayList<>();
         for (char letter : str.toCharArray()) {
             init.add(new Wrapper(letter));
         }
-        return perms(str, 0, init)
+        return perms2(str, 0, init)
                 .stream()
                 .map(wrapper -> wrapper.string)
                 .collect(Collectors.toList());
     }
 
-    public List<Wrapper> perms(String str, int i, List<Wrapper> res) {
+    public List<Wrapper> perms2(String str, int i, List<Wrapper> res) {
         if (i < str.length()-1) {
             List<Wrapper> newRes = new ArrayList<>();
             for (Wrapper wrapper : res) {
@@ -38,7 +55,7 @@ public class PermWithDups {
                     }
                 }
             }
-            return perms(str, i+1, newRes);
+            return perms2(str, i+1, newRes);
         }
         return res;
     }
